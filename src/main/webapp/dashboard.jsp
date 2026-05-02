@@ -7,16 +7,30 @@
 <title>Dashboard</title>
 </head>
 <body>
-<%
-String username=(String)
-session.getAttribute("premjit");
 
+
+ <% response.setHeader("Cache-control","no-cache,no-store,must-revalidate");
+        if(session.getAttribute("a")==null)
+    {
+    response.sendRedirect("index.html");
+    }
+    %>
+
+
+<%
+String username=(String) session.getAttribute("a");
 
 %>
 
 
 
 <h1>Welcome,  <%=username%>  </h1>
+
+<form action="LogoutServlet">
+
+<input type="submit" value="Logout">
+</form>
+
 
 </body>
 </html>
